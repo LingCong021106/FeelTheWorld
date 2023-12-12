@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frame"
@@ -8,53 +8,76 @@
     android:background="@null"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleMessage"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/queryLayout" />
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Feel The World"
+        app:titleTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
 
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/queryLayout"-->
-<!--        style="@style/TextInputLayoutStyle"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_margin="8dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:hint="Enter your query here"-->
-<!--        app:endIconMode="custom"-->
-<!--        app:endIconDrawable="@drawable/baseline_send_24"-->
-<!--        android:padding="5dp"-->
-<!--        android:textColorHint="@color/black"-->
-<!--        app:hintTextColor="@color/black">-->
-
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:id="@+id/queryEditText"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:imeOptions="actionSend"-->
-<!--            android:importantForAutofill="no"-->
-<!--            android:inputType="text"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textColorHint="@color/black"-->
-<!--            android:textSize="18sp" />-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-
-
-    <ImageButton
-        android:id="@+id/queryLayout"
+    <LinearLayout
+        android:id="@+id/objectRecogFrame"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/rounded_background"
-        android:padding="18dp"
-        android:layout_marginVertical="24dp"
-        android:scaleType="center"
-        android:src="@drawable/baseline_keyboard_voice_24" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatBoxFrame">
+
+        <ImageButton
+            android:id="@+id/objectRecogBtn"
+            android:layout_width="230dp"
+            android:layout_height="250dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/object" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Object Recognition"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chatBoxFrame"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/objectRecogFrame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageButton
+            android:id="@+id/chatBoxBtn"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="Chat Bot"
+            app:srcCompat="@drawable/chatbot" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat Bot"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
 
 
-</RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

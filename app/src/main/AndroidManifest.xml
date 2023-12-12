@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- permissions for INTERNET -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
 
-    <!--permissions for INTERNET-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,7 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelTheWorld"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ChatBox"
+            android:exported="false"
+            android:label="Chat GPT 3.5 Turbo"
+            android:theme="@style/Theme.FeelTheWorld"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".RealTime"
+            android:exported="false"
+            android:label="Object Recognition"
+            android:theme="@style/Theme.FeelTheWorld"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -26,4 +40,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
